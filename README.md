@@ -142,10 +142,48 @@ If you are looking for the Complete Typescript 2 Course - Build a REST API, the 
 
 # Thing learnt during the course
 
-1. RxJS obserables(Push,Pull)
-2. RxJS Observer (next,error,complete)
-3. RxJS operators (pipeable,creation)
-4. Building componets with RxJS
-5. RxJS Error handling
-6. Building Custom operator
-7. RxJS subscriptions
+1. RxJS obserables:
+            Push and Pull are two different obserables protocols.
+            Pull: In pull system the consumer determines when it receive data from the data Producer.
+                the producer itself is unaware of when the data will be delivered to the consumer.
+                Every javascript function is a pull function.
+            Push: In push system , the data producer determines when to send data to the consumer.
+                The consumer is unaware of when it will receive the data.
+                Promise in the most common type of Push system in javascript.
+            Obserables can return multiple values over time where as function can return only one value.
+
+2. RxJS Observer (next,error,complete):
+            An Observer is a consumer of values delivered by the Obserables. They are set of callbacks.
+            To use a observer we need to provide the observer to the subscrible of an Obserable.
+            Observers are simply a set of callbacks, one for each type of notification delivered by the Observable: next, error, and complete.
+            EXAMPLE:
+                const observer = {
+                    next: x => console.log('Observer got a next value: ' + x),
+                    error: err => console.error('Observer got an error: ' + err),
+                    complete: () => console.log('Observer got a complete notification'),
+                };
+
+3. RxJS operators:
+            Operators are functions. There are two kinds of operators.
+            a. Pipable Operators:
+                        A Pipeable Operator is a function that takes an Observable as its input and returns another Observable. They can be piped to Observables using the syntax observableInstance.pipe(operator()). These include, filter(...), and mergeMap(...).
+            b. Creation Operators: 
+                        A Creation Operator is a standalone function that is used to create a new Obserable with common predefined behaviour or joining other Obseables.
+                        They include ajax(),interval(),range(),fromEvent(),fromEvnetPattern().
+        
+4. RxJS subscriptions:
+            A Subscription is an object that represents a disposable resource, usually the execution of an Observable. A Subscription has one important method, unsubscribe(), that takes no argument and just disposes the resource held by the subscription. In previous versions of RxJS, Subscription was called "Disposable".
+            EXAMPLE:
+                import { interval } from 'rxjs';
+                const observable = interval(1000);
+                const subscription = observable.subscribe(x => console.log(x));
+                subscription.unsubscribe();
+
+5. RxJS Error handling:
+            Error handling simply provides effective ways to handle error and retry logic. Error handling can be done in many forms such as:
+                a. Try and catch operator
+                b. Catch and replace Strategy
+                c. Catch and rethrow Strategy
+                d. Retry Strategy
+                e. Try , catch and finally Operator
+                f. finalize operator and many others.
