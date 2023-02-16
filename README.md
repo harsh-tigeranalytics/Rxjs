@@ -140,3 +140,12 @@ If you are looking for the Complete Typescript 2 Course - Build a REST API, the 
 
 ![Complete Typescript Course](https://angular-academy.s3.amazonaws.com/thumbnails/typescript-2-small.png)
 
+# Thing learnt during the course
+
+1. RxJS obserables(Push,Pull)
+2. RxJS Observer (next,error,complete)
+3. RxJS operators (pipeable,creation)
+4. Building componets with RxJS
+5. RxJS Error handling
+6. Building Custom operator
+7. RxJS subscriptions
